@@ -296,7 +296,8 @@ def run_recalibration_cycle(
     best_holdout_roi = holdout_metrics["roi"]
     best_cfg = dict(current_cfg)
     history = []
-    weight_workers = min(12, max(1, os.cpu_count() or 1))
+    cpu_count = os.cpu_count() or 1
+    weight_workers = max(1, cpu_count)
 
     print(
         f"\nSplit: train {train_df['race_id'].nunique():,} races / holdout {holdout_df['race_id'].nunique():,} races"
