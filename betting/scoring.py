@@ -86,18 +86,25 @@ def _market_sanity_component(df: pd.DataFrame) -> pd.Series:
 
 def score_runners(df: pd.DataFrame, config: dict) -> pd.DataFrame:
     """Compute model_score and within-race model_rank."""
-    result = df.copy()
-    speed_source = result["speed_feature_score"] if "speed_feature_score" in result else result["condition_rating"]
+    # Only copy if we must modify in place; otherwise, build new columns efficiently
+    speed_source = df["speed_feature_score"] if "speed_feature_score" in df else df["condition_rating"]
     speed_source = pd.to_numeric(speed_source, errors="coerce").fillna(0.0)
-    speed_confidence = pd.to_numeric(result.get("speed_feature_confidence", 1.0), errors="coerce").fillna(1.0)
-    if "race_id" in result.columns:
-        field_mean = speed_source.groupby(result["race_id"]).transform("mean")
+    speed_confidence = pd.to_numeric(df.get("speed_feature_confidence", 1.0), errors="coerce").fillna(1.0)
+    if "race_id" in df.columns:
+        field_mean = speed_source.groupby(df["race_id"]).transform("mean")
     else:
-        field_mean = pd.Series(speed_source.mean(), index=result.index)
+        field_mean = pd.Series(speed_source.mean(), index=df.index)
     base_speed_score = 1.0 / (1.0 + np.exp(-(speed_source - field_mean) / 0.60))
-    result["speed_score_norm"] = base_speed_score * speed_confidence + 0.5 * (1.0 - speed_confidence)
-    result["market_sanity_score"] = _market_sanity_component(result)
-    result["model_score"] = compute_model_score(result, config)
+    speed_score_norm = base_speed_score * speed_confidence + 0.5 * (1.0 - speed_confidence)
+    market_sanity_score = _market_sanity_component(df)
+    model_score = compute_model_score(df, config)
+    
+    # Assign computed columns to original or create new dataframe
+    result = df.assign(
+        speed_score_norm=speed_score_norm,
+        market_sanity_score=market_sanity_score,
+        model_score=model_score
+    )
     return add_model_rank(result)
 
 

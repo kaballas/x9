@@ -160,21 +160,22 @@ def calibrate_probabilities(df: pd.DataFrame, config: dict) -> pd.DataFrame:
     if model is None:
         return passthrough_calibration(df)
 
-    result = df.copy()
-    raw = result["raw_model_prob"].clip(0.0, 1.0)
+    raw = df["raw_model_prob"].clip(0.0, 1.0)
     calibrated = _predict_calibrated(model, raw)
     raw_blend = float(config.get("calibration_raw_blend", 0.0))
     raw_blend = max(0.0, min(1.0, raw_blend))
     if raw_blend > 0.0:
         calibrated = (1.0 - raw_blend) * calibrated + raw_blend * raw.to_numpy(dtype=float)
-    result["model_prob"] = np.clip(calibrated, 0.0, 1.0)
+    model_prob = np.clip(calibrated, 0.0, 1.0)
 
     # Re-normalise within race so model_prob sums to 1 (matches market_implied_prob).
-    if "race_id" in result.columns:
-        result["model_prob"] = result.groupby("race_id")["model_prob"].transform(
+    if "race_id" in df.columns:
+        model_prob_series = pd.Series(model_prob, index=df.index)
+        model_prob = model_prob_series.groupby(df["race_id"]).transform(
             lambda s: s / s.sum() if s.sum() > 0 else s
-        )
+        ).to_numpy()
 
+    result = df.assign(model_prob=model_prob)
     return _refresh_live_rank_fields(_apply_market_confirmation(result, config))
 
 

@@ -16,35 +16,39 @@ def calculate_edges(df: pd.DataFrame, config: dict) -> pd.DataFrame:
 
     sp_starting_price is reference-only and must not feed selection logic.
     """
-    result = df.copy()
-    model_prob = _series(result, "model_prob", default=0.0).fillna(0.0)
+    model_prob = _series(df, "model_prob", default=0.0).fillna(0.0)
     fair_market_prob = _series(
-        result,
-        "fair_market_prob" if "fair_market_prob" in result.columns else "market_implied_prob",
+        df,
+        "fair_market_prob" if "fair_market_prob" in df.columns else "market_implied_prob",
         default=0.0,
     ).fillna(0.0)
-    raw_market_prob = _series(result, "raw_market_prob", default=float("nan"))
+    raw_market_prob = _series(df, "raw_market_prob", default=float("nan"))
     if raw_market_prob.isna().any():
-        price = _series(result, config["live_price_column"], default=float("nan"))
+        price = _series(df, config["live_price_column"], default=float("nan"))
         raw_market_prob = raw_market_prob.fillna(
             (1.0 / price.where(price > 0)).fillna(0.0)
         )
 
-    result["fair_edge"] = model_prob - fair_market_prob
-    result["raw_edge"] = model_prob - raw_market_prob
-    result["ev"] = compute_expected_value(model_prob, _series(result, config["live_price_column"], default=float("nan")))
-    result["fair_edge_pct"] = result["fair_edge"] * 100.0
-    result["raw_edge_pct"] = result["raw_edge"] * 100.0
-    result["ev_pct"] = result["ev"] * 100.0
-
-    # Backward-compatible aliases.
-    result["edge"] = result["fair_edge"]
-    result["edge_pct"] = result["fair_edge_pct"]
+    fair_edge = model_prob - fair_market_prob
+    raw_edge = model_prob - raw_market_prob
+    ev = compute_expected_value(model_prob, _series(df, config["live_price_column"], default=float("nan")))
+    
     sp_column = config["sp_reference_column"]
     live_column = config["live_price_column"]
-    result["price_vs_sp"] = result[sp_column] - result[live_column]
-    result.loc[result[sp_column].isna(), "price_vs_sp"] = pd.NA
-    return result
+    price_vs_sp = df[sp_column] - df[live_column]
+    price_vs_sp = price_vs_sp.where(df[sp_column].notna(), pd.NA)
+    
+    return df.assign(
+        fair_edge=fair_edge,
+        raw_edge=raw_edge,
+        ev=ev,
+        fair_edge_pct=fair_edge * 100.0,
+        raw_edge_pct=raw_edge * 100.0,
+        ev_pct=ev * 100.0,
+        edge=fair_edge,  # Backward-compatible alias
+        edge_pct=fair_edge * 100.0,  # Backward-compatible alias
+        price_vs_sp=price_vs_sp
+    )
 
 
 def compute_edge(model_prob: float, market_implied_prob: float) -> float:

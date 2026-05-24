@@ -277,9 +277,18 @@ def run_recalibration_cycle(
     min_gain: float,
     max_iters: int,
     verbose: bool,
+    max_workers: int = 0,
 ) -> tuple[dict, list[dict], dict]:
     """
     Run the weight → calibration → filter loop until convergence.
+
+    Parameters
+    ----------
+    max_workers : int
+        Maximum number of worker threads for weight sweeping.
+        0 = auto (cpu_count // 2, capped at 16)
+        1 = single-threaded
+        >1 = use that many threads
 
     Returns
     -------
@@ -296,8 +305,14 @@ def run_recalibration_cycle(
     best_holdout_roi = holdout_metrics["roi"]
     best_cfg = dict(current_cfg)
     history = []
-    cpu_count = os.cpu_count() or 1
-    weight_workers = max(1, cpu_count)
+    
+    if max_workers == 0:
+        cpu_count = os.cpu_count() or 1
+        # Optimal: 2-4x physical cores. Too many threads causes memory thrashing.
+        # For dataframe-heavy workloads, cap at 16-24 to balance speed with memory.
+        weight_workers = min(max(1, cpu_count // 2), 16)
+    else:
+        weight_workers = max(1, max_workers)
 
     print(
         f"\nSplit: train {train_df['race_id'].nunique():,} races / holdout {holdout_df['race_id'].nunique():,} races"
@@ -469,6 +484,12 @@ def parse_args() -> argparse.Namespace:
         help="Minimum bets required for a combo to be considered. Default: 30",
     )
     p.add_argument(
+        "--workers",
+        type=int,
+        default=0,
+        help="Max worker threads for sweeps. 0=auto (cpu//2, max 16), 1=single-threaded. Default: 0",
+    )
+    p.add_argument(
         "--write",
         action="store_true",
         help="Write final config back to betting/config.py",
@@ -511,6 +532,7 @@ def main() -> None:
         min_gain=args.min_gain,
         max_iters=args.max_iters,
         verbose=args.verbose,
+        max_workers=args.workers,
     )
 
     # ── Summary ──────────────────────────────────────────────────────────

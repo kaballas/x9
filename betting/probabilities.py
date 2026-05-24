@@ -8,35 +8,38 @@ import pandas as pd
 
 def assign_probabilities(df: pd.DataFrame, config: dict) -> pd.DataFrame:
     """Add within-race model probabilities plus raw and fair market probabilities."""
-    result = df.copy()
-    if result.empty:
-        result["raw_model_prob"] = pd.Series(dtype=float)
-        result["model_prob"] = pd.Series(dtype=float)
-        result["raw_market_prob"] = pd.Series(dtype=float)
-        result["book_overround"] = pd.Series(dtype=float)
-        result["fair_market_prob"] = pd.Series(dtype=float)
-        result["market_implied_prob"] = pd.Series(dtype=float)
-        return result
+    if df.empty:
+        return df.assign(
+            raw_model_prob=pd.Series(dtype=float),
+            model_prob=pd.Series(dtype=float),
+            raw_market_prob=pd.Series(dtype=float),
+            book_overround=pd.Series(dtype=float),
+            fair_market_prob=pd.Series(dtype=float),
+            market_implied_prob=pd.Series(dtype=float)
+        )
 
     temperature = float(config.get("prob_temperature", 4.0))
-    result["raw_model_prob"] = result.groupby("race_id")["model_score"].transform(
+    raw_model_prob = df.groupby("race_id")["model_score"].transform(
         lambda s: softmax_within_race(s, temperature=temperature)
     )
-    result["model_prob"] = result["raw_model_prob"]
-
-    result["raw_market_prob"] = compute_market_implied_prob(result["live_price"])
-    if "race_id" in result.columns:
-        result["book_overround"] = result.groupby("race_id")["raw_market_prob"].transform("sum")
-        result["fair_market_prob"] = result.groupby("race_id")["live_price"].transform(
-            normalise_market_prob
-        )
+    raw_market_prob = compute_market_implied_prob(df["live_price"])
+    
+    if "race_id" in df.columns:
+        book_overround = raw_market_prob.groupby(df["race_id"]).transform("sum")
+        fair_market_prob = df.groupby("race_id")["live_price"].transform(normalise_market_prob)
     else:
-        result["book_overround"] = pd.Series(result["raw_market_prob"].sum(), index=result.index)
-        result["fair_market_prob"] = normalise_market_prob(result["live_price"])
+        book_overround = pd.Series(raw_market_prob.sum(), index=df.index)
+        fair_market_prob = normalise_market_prob(df["live_price"])
 
     # Backward-compatible alias used across the codebase.
-    result["market_implied_prob"] = result["fair_market_prob"]
-    return result
+    return df.assign(
+        raw_model_prob=raw_model_prob,
+        model_prob=raw_model_prob,
+        raw_market_prob=raw_market_prob,
+        book_overround=book_overround,
+        fair_market_prob=fair_market_prob,
+        market_implied_prob=fair_market_prob
+    )
 
 
 def softmax_within_race(scores: pd.Series, temperature: float = 4.0) -> pd.Series:
