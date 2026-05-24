@@ -1,0 +1,5 @@
+model_prob_bucket,runners,wins,actual_win_pct,model_prob_pct,market_prob_pct,calibration_ratio
+11-14%,80,8,10.0,13.2,7.8,0.76
+14-17%,172,24,14.0,15.4,9.0,0.9
+17-20%,112,10,8.9,18.2,10.1,0.49
+20%+,94,17,18.1,22.9,11.7,0.79

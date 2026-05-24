@@ -1,0 +1,167 @@
+SUMMARY
+Total Bets: 160
+Total Staked: 160.000
+Total Profit: -15.500
+Roi: -9.69%
+Strike Rate: 13.12%
+Avg Price: 7.618
+Avg Edge: 11.44%
+Wins: 21
+
+Staking comparison:
+  Flat stake  ROI: -9.7%  profit: -15.50  staked: 160.00
+  Fibonacci   ROI: -3.4%  profit: -590.80  staked: 17519.00  max_level: 10  max_stake: 144.00 units
+
+PRICE BAND
+breakdown_type group_value  bets  wins  total_staked  total_profit       roi  strike_rate  avg_price  avg_edge
+    price_band          <3     1     1           1.0           1.8  1.800000     1.000000   2.800000  0.112206
+    price_band         3-6    28     6          28.0           1.2  0.042857     0.214286   4.932143  0.110903
+    price_band        9-12    50     5          50.0          -2.5 -0.050000     0.100000   9.500000  0.113043
+    price_band         6-9    81     9          81.0         -16.0 -0.197531     0.111111   7.444444  0.116513
+
+TRACK
+breakdown_type               group_value  bets  wins  total_staked  total_profit       roi  strike_rate  avg_price  avg_edge
+         track           Gold Coast Poly     3     2           3.0          14.5  4.833333     0.666667   9.000000  0.107655
+         track                     Wyong     3     2           3.0          12.0  4.000000     0.666667   8.333333  0.112970
+         track                  Narrogin     1     1           1.0           7.5  7.500000     1.000000   8.500000  0.114697
+         track                 Swan Hill     3     1           3.0           7.0  2.333333     0.333333   8.500000  0.113766
+         track                    Hobart     3     1           3.0           6.5  2.166667     0.333333   8.666667  0.103313
+         track                  Pakenham     3     1           3.0           6.0  2.000000     0.333333   7.500000  0.145547
+         track                  Pinjarra     1     1           1.0           6.0  6.000000     1.000000   7.000000  0.090662
+         track                    Cairns     3     1           3.0           6.0  2.000000     0.333333   9.333333  0.125250
+         track             Morphettville     1     1           1.0           5.5  5.500000     1.000000   6.500000  0.106024
+         track             Warracknabeal     2     1           2.0           5.5  2.750000     0.500000   7.750000  0.105550
+         track                    Hawera     1     1           1.0           4.5  4.500000     1.000000   5.500000  0.102699
+         track                Ascot Park     1     1           1.0           3.6  3.600000     1.000000   4.600000  0.104022
+         track                  Waverley     3     1           3.0           3.5  1.166667     0.333333   8.500000  0.119073
+         track                Canterbury     2     1           2.0           3.5  1.750000     0.500000   5.050000  0.095399
+         track                   Horsham     1     1           1.0           3.0  3.000000     1.000000   4.000000  0.102532
+         track             Coffs Harbour     4     1           4.0           2.5  0.625000     0.250000   8.125000  0.116641
+         track                 Toowoomba     3     1           3.0           2.0  0.666667     0.333333   5.833333  0.130951
+         track                    Albany     3     1           3.0           1.6  0.533333     0.333333   6.533333  0.107918
+         track                 Esperance     1     0           1.0          -1.0 -1.000000     0.000000   3.800000  0.105792
+         track                     Dalby     1     0           1.0          -1.0 -1.000000     0.000000   6.500000  0.099608
+         track                 Devonport     1     0           1.0          -1.0 -1.000000     0.000000   8.000000  0.109514
+         track                  Avondale     1     0           1.0          -1.0 -1.000000     0.000000   4.600000  0.095066
+         track                 Carnarvon     1     0           1.0          -1.0 -1.000000     0.000000   7.500000  0.147117
+         track                  Canberra     1     0           1.0          -1.0 -1.000000     0.000000   8.500000  0.140284
+         track                  Armidale     1     0           1.0          -1.0 -1.000000     0.000000  10.000000  0.119325
+         track                   Belmont     1     0           1.0          -1.0 -1.000000     0.000000   4.600000  0.134706
+         track                    Albury     1     0           1.0          -1.0 -1.000000     0.000000   6.000000  0.104975
+         track                Waipukurau     1     0           1.0          -1.0 -1.000000     0.000000   8.000000  0.120017
+         track                     Wagga     1     0           1.0          -1.0 -1.000000     0.000000   8.000000  0.134148
+         track                  Tuncurry     1     0           1.0          -1.0 -1.000000     0.000000   9.000000  0.090697
+         track                     Taupo     1     0           1.0          -1.0 -1.000000     0.000000   6.500000  0.103485
+         track                  Trentham     1     0           1.0          -1.0 -1.000000     0.000000   9.000000  0.101064
+         track                   Te Rapa     1     0           1.0          -1.0 -1.000000     0.000000   9.000000  0.124994
+         track                    Terang     1     0           1.0          -1.0 -1.000000     0.000000   6.500000  0.105093
+         track                Townsville     1     0           1.0          -1.0 -1.000000     0.000000   8.500000  0.154455
+         track              Yarra Valley     1     0           1.0          -1.0 -1.000000     0.000000   7.500000  0.181537
+         track           Caulfield Heath     1     0           1.0          -1.0 -1.000000     0.000000   5.000000  0.108358
+         track                 Casterton     1     0           1.0          -1.0 -1.000000     0.000000   8.500000  0.122122
+         track                 Caulfield     1     0           1.0          -1.0 -1.000000     0.000000   5.500000  0.095076
+         track                    Donald     1     0           1.0          -1.0 -1.000000     0.000000   8.500000  0.102012
+         track                Kalgoorlie     1     0           1.0          -1.0 -1.000000     0.000000   6.000000  0.113914
+         track                  Matamata     1     0           1.0          -1.0 -1.000000     0.000000   9.500000  0.098312
+         track                    Moruya     1     0           1.0          -1.0 -1.000000     0.000000   7.500000  0.135437
+         track              Port Hedland     1     0           1.0          -1.0 -1.000000     0.000000   4.400000  0.090430
+         track                     Otaki     1     0           1.0          -1.0 -1.000000     0.000000   9.500000  0.115655
+         track                 Narromine     1     0           1.0          -1.0 -1.000000     0.000000   7.500000  0.133621
+         track                    Mackay     1     0           1.0          -1.0 -1.000000     0.000000  10.000000  0.099363
+         track                   Stawell     1     0           1.0          -1.0 -1.000000     0.000000  10.000000  0.146898
+         track            Sunshine Coast     1     0           1.0          -1.0 -1.000000     0.000000  10.000000  0.118092
+         track                  Tamworth     1     0           1.0          -1.0 -1.000000     0.000000  10.000000  0.105257
+         track Sunshine Coast Poly Track     1     0           1.0          -1.0 -1.000000     0.000000   9.000000  0.126765
+         track                  Randwick     1     0           1.0          -1.0 -1.000000     0.000000   7.000000  0.101611
+         track                  Riverton     1     0           1.0          -1.0 -1.000000     0.000000   7.500000  0.099761
+         track            Port Macquarie     1     0           1.0          -1.0 -1.000000     0.000000   6.500000  0.094238
+         track             Mount Gambier     1     0           1.0          -1.0 -1.000000     0.000000   4.800000  0.091377
+         track                Hawkesbury     1     0           1.0          -1.0 -1.000000     0.000000  10.000000  0.093680
+         track                   Grafton     1     0           1.0          -1.0 -1.000000     0.000000   6.500000  0.092602
+         track                   Gosford     1     0           1.0          -1.0 -1.000000     0.000000   7.000000  0.097886
+         track                  Goulburn     1     0           1.0          -1.0 -1.000000     0.000000   8.500000  0.159445
+         track                   Rotorua     1     0           1.0          -1.0 -1.000000     0.000000   6.500000  0.093683
+         track              Warwick Farm     1     0           1.0          -1.0 -1.000000     0.000000   6.500000  0.136867
+         track                      York     1     0           1.0          -1.0 -1.000000     0.000000   8.500000  0.094000
+         track                  Wanganui     1     0           1.0          -1.0 -1.000000     0.000000  10.000000  0.113622
+         track                   Seymour     1     0           1.0          -1.0 -1.000000     0.000000   8.500000  0.105547
+         track                  Rosehill     1     0           1.0          -1.0 -1.000000     0.000000   6.000000  0.097837
+         track               Rockhampton     1     0           1.0          -1.0 -1.000000     0.000000   9.000000  0.090088
+         track                Gold Coast     4     1           4.0          -1.2 -0.300000     0.250000   6.700000  0.116097
+         track                   Doomben     2     0           2.0          -2.0 -1.000000     0.000000   8.500000  0.105876
+         track                   Ipswich     2     0           2.0          -2.0 -1.000000     0.000000   8.000000  0.149227
+         track                   Geelong     2     0           2.0          -2.0 -1.000000     0.000000   7.500000  0.093700
+         track                 Geraldton     2     0           2.0          -2.0 -1.000000     0.000000   7.250000  0.105288
+         track                 Riccarton     2     0           2.0          -2.0 -1.000000     0.000000   6.900000  0.107450
+         track                Launceston     2     0           2.0          -2.0 -1.000000     0.000000   7.750000  0.102749
+         track              Muswellbrook     2     0           2.0          -2.0 -1.000000     0.000000   7.500000  0.093440
+         track                Cranbourne     2     0           2.0          -2.0 -1.000000     0.000000   8.000000  0.117486
+         track               Warrnambool     2     0           2.0          -2.0 -1.000000     0.000000   7.250000  0.128324
+         track                     Taree     2     0           2.0          -2.0 -1.000000     0.000000   8.750000  0.152743
+         track              Port Lincoln     2     0           2.0          -2.0 -1.000000     0.000000   9.500000  0.101373
+         track                Flemington     3     0           3.0          -3.0 -1.000000     0.000000   7.666667  0.116465
+         track                Barcaldine     3     0           3.0          -3.0 -1.000000     0.000000   6.000000  0.112690
+         track                 Balaklava     3     0           3.0          -3.0 -1.000000     0.000000   7.500000  0.112565
+         track                     Ascot     3     0           3.0          -3.0 -1.000000     0.000000   8.000000  0.110063
+         track                    Darwin     3     0           3.0          -3.0 -1.000000     0.000000   9.000000  0.124971
+         track                   Kilmore     3     0           3.0          -3.0 -1.000000     0.000000   9.666667  0.103514
+         track                 Newcastle     3     0           3.0          -3.0 -1.000000     0.000000   7.600000  0.101092
+         track                      Sale     3     0           3.0          -3.0 -1.000000     0.000000   6.366667  0.101895
+         track                   Kyneton     3     0           3.0          -3.0 -1.000000     0.000000   8.666667  0.104480
+         track                  Ballarat     4     0           4.0          -4.0 -1.000000     0.000000   6.600000  0.147561
+         track                Eagle Farm     4     0           4.0          -4.0 -1.000000     0.000000   7.375000  0.096095
+         track             Kembla Grange     4     0           4.0          -4.0 -1.000000     0.000000   8.500000  0.124661
+         track             Alice Springs     6     0           6.0          -6.0 -1.000000     0.000000   6.833333  0.126195
+
+DISTANCE BAND
+breakdown_type group_value  bets  wins  total_staked  total_profit       roi  strike_rate  avg_price  avg_edge
+ distance_band      middle    66    11          66.0           6.5  0.098485     0.166667   7.612121  0.114381
+ distance_band     staying    24     3          24.0           0.0  0.000000     0.125000   7.895833  0.116702
+ distance_band      sprint    70     7          70.0         -22.0 -0.314286     0.100000   7.528571  0.113675
+
+CONDITION
+breakdown_type group_value  bets  wins  total_staked  total_profit       roi  strike_rate  avg_price  avg_edge
+     condition    Good (3)    17     5          17.0          26.5  1.558824     0.294118   8.294118  0.110664
+     condition   Heavy (8)    12     4          12.0          10.3  0.858333     0.333333   7.700000  0.119008
+     condition    Soft (5)    22     5          22.0          10.1  0.459091     0.227273   7.281818  0.116377
+     condition  Heavy (10)     5     1           5.0          -0.4 -0.080000     0.200000   7.220000  0.109858
+     condition    Soft (7)     2     0           2.0          -2.0 -1.000000     0.000000   7.250000  0.095634
+     condition   Heavy (9)     4     0           4.0          -4.0 -1.000000     0.000000   9.125000  0.113453
+     condition    Soft (6)    19     2          19.0          -6.0 -0.315789     0.105263   7.952632  0.119764
+     condition        Good    10     0          10.0         -10.0 -1.000000     0.000000   6.990000  0.126404
+     condition    Good (4)    69     4          69.0         -40.0 -0.579710     0.057971   7.495652  0.111647
+
+FIELD SIZE
+breakdown_type  group_value  bets  wins  total_staked  total_profit       roi  strike_rate  avg_price  avg_edge
+    field_size            9    33     5          33.0           9.1  0.275758     0.151515   7.406061  0.114655
+    field_size           10    26     5          26.0           9.0  0.346154     0.192308   7.453846  0.112394
+    field_size           12    12     3          12.0           8.5  0.708333     0.250000   7.708333  0.105222
+    field_size           15     4     1           4.0           2.5  0.625000     0.250000   6.775000  0.110718
+    field_size           11    24     4          24.0           1.3  0.054167     0.166667   7.654167  0.116326
+    field_size           19     1     0           1.0          -1.0 -1.000000     0.000000  10.000000  0.093680
+    field_size           16     1     0           1.0          -1.0 -1.000000     0.000000   7.500000  0.181537
+    field_size           17     2     0           2.0          -2.0 -1.000000     0.000000   6.750000  0.102010
+    field_size           18     2     0           2.0          -2.0 -1.000000     0.000000   9.250000  0.127092
+    field_size           14    11     1          11.0          -5.5 -0.500000     0.090909   8.000000  0.116580
+    field_size            7     8     0           8.0          -8.0 -1.000000     0.000000   7.750000  0.122810
+    field_size           13    12     0          12.0         -12.0 -1.000000     0.000000   8.325000  0.105863
+    field_size            8    24     2          24.0         -14.4 -0.600000     0.083333   7.416667  0.118140
+
+MARKET RANK
+breakdown_type  group_value  bets  wins  total_staked  total_profit       roi  strike_rate  avg_price  avg_edge
+   market_rank          4.0    47     6          47.0           2.5  0.053191     0.127660   8.106383  0.118269
+   market_rank          1.0     1     1           1.0           1.8  1.800000     1.000000   2.800000  0.112206
+   market_rank          3.0    48     8          48.0          -1.8 -0.037500     0.166667   6.700000  0.111075
+   market_rank          7.0     2     0           2.0          -2.0 -1.000000     0.000000   9.750000  0.141452
+   market_rank          2.0    21     3          21.0          -2.5 -0.119048     0.142857   5.976190  0.107455
+   market_rank          5.0    32     3          32.0          -4.5 -0.140625     0.093750   8.843750  0.119369
+   market_rank          6.0     9     0           9.0          -9.0 -1.000000     0.000000   9.500000  0.105055
+
+MODEL RANK
+breakdown_type  group_value  bets  wins  total_staked  total_profit       roi  strike_rate  avg_price  avg_edge
+    model_rank          2.0    39     6          39.0           9.5  0.243590     0.153846   8.384615  0.104777
+    model_rank          1.0   121    15         121.0         -25.0 -0.206612     0.123967   7.371074  0.117528
+
+PRICE QUALITY
+breakdown_type group_value  bets  wins  total_staked  total_profit       roi  strike_rate  avg_price  avg_edge
+ price_quality       FLUC2   160    21         160.0         -15.5 -0.096875      0.13125   7.618125   0.11442

@@ -1,0 +1,2 @@
+database/race_reports.sqlite filter=lfs diff=lfs merge=lfs -text
+database/race_reports.sqlite-wal filter=lfs diff=lfs merge=lfs -text
